@@ -1,3 +1,5 @@
+# Competitiveness of 2022 League of Legends World Championship Matches
+
 by Brighten Hayama (bhayama@ucsd.edu)
 
 ## Introduction 
