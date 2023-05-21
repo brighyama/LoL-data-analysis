@@ -21,6 +21,9 @@ by Brighten Hayama (bhayama@ucsd.edu)
 | ESPORTSTMNT01_2690227 | LCK CL   |   12.01 | KT Rolster Challengers        |        1 |         1972 |           1191 |               1191 | False    |
 
 
+<iframe src="assets/golddiff-plot.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/gamelen-golddiff-plot.html" width=800 height=600 frameBorder=0></iframe>
 
 <iframe src="assets/wcs-golddiff-plot.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -28,13 +31,14 @@ by Brighten Hayama (bhayama@ucsd.edu)
 
 ## Assessment of Missingness
 
+<iframe src="assets/patch-missingness-plot.html" width=800 height=600 frameBorder=0></iframe>
 
 
 <br>
 
 ## Hypothesis Testing
 
-
+<iframe src="assets/hyp-test-plot.html" width=800 height=600 frameBorder=0></iframe>
 
 
 <br>
