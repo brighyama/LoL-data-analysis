@@ -20,6 +20,10 @@ by Brighten Hayama (bhayama@ucsd.edu)
 | ESPORTSTMNT01_2690219 | LCK CL   |   12.01 | Liiv SANDBOX Challengers      |        1 |         2114 |           1763 |               1763 | False    |
 | ESPORTSTMNT01_2690227 | LCK CL   |   12.01 | KT Rolster Challengers        |        1 |         1972 |           1191 |               1191 | False    |
 
+
+
+<iframe src="assets/wcs-golddiff-plot.html" width=800 height=600 frameBorder=0></iframe>
+
 <br>
 
 ## Assessment of Missingness
