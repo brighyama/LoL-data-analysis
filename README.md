@@ -1,4 +1,4 @@
-# Competitiveness of League of Legends 2022 World Championship Games 
+## Competitiveness of League of Legends 2022 World Championship Games 
 
 by Brighten Hayama (bhayama@ucsd.edu)
 
