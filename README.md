@@ -17,7 +17,7 @@ In the raw dataset we analyze, there are 21262 rows, where each row represents a
 - `gamelength` : (int) match duration in seconds
 - `golddiffat15` : (float) difference in gold at 15min between a team and its opponent
 
-<br>
+---
 
 ## Cleaning and EDA
 
@@ -65,7 +65,7 @@ In relation to our question, one might consider the absolute difference for part
 
 ### Interesting Aggregates
 
-Following the plot displaying gold differences for each team in WCS, we group the WCS dataset by each team and observe the mean gold difference at 15min. One might notice that teams with better placement in WCS have more positive mean gold difference at 15min compared to lower placed teams, indicating a possible relationship between gold difference at 15min and win-rate.
+We group the WCS dataset by each team and observe the mean gold difference at 15min. One might notice that teams with better placement in WCS have more positive mean gold difference at 15min compared to lower placed teams, indicating a possible relationship between gold difference at 15min and win-rate.
 
 | teamname            |   golddiffat15 |
 |:--------------------|---------------:|
@@ -80,21 +80,35 @@ Following the plot displaying gold differences for each team in WCS, we group th
 | EDward Gaming       |        672.909 |
 | Evil Geniuses       |        364.125 |
 
-<br>
+---
 
 ## Assessment of Missingness
 
+The missing data from our dataset under `golddiffat15` does not seem to be **NMAR**. It wouldn't make sense for the values themselves to give any indication on whether or not they would be missing from our dataset. Each match data covers a wide range of gold differences at 15min, and there should not be a reason for why a particular value would be missing while another would not. We could easily observe the dependency of missingness of this column to other columns, such as when or where the match took place, to potentially explain the missingness of `golddiffat15`, making these missing values MAR.
 
+After observing the missingness of `golddiffat15` in relation to the result of the game (win or loss) and performing a permutation test, we likely conclude that the column `golddiffat15` is **MCAR**, especially since missing values of `golddiffat15` come from entire matches, not particular teams. 
+
+However, if we observe the missingness of `golddiffat15` related to `patch`, we notice that the observed distributions of missingness are different enough such that many permutations on the `patch` of each game does not see enough Total Variation Distances as or more extreme than the observed. We can safetly reject the null and conclude that the missingness in the `golddiffat15` column does depend on `patch`, so the values are **MAR**.
 
 <iframe src="assets/patch-missingness-plot.html" width=800 height=600 frameBorder=0></iframe>
 
-
-<br>
+---
 
 ## Hypothesis Testing
 
+- **Null Hypothesis:** The mean absolute gold difference at 15min during WCS games is **the same** as the mean absolute gold difference at 15min during any competitive League game.
+
+- **Alternative Hypothesis:** The mean absolute gold difference at 15min during WCS games **is less** than the mean absolute gold difference at 15min during any competitive League game.
+
+- **Test Statistic:** Mean Gold Difference at 15min
+
+Since we hypothesized, based on observation, that WCS matches have smaller gold differences at 15min and therefore are more competitive than regular League matches, we chose our alternative hypothesis accordingly, and our null hypothesis to simply be that the mean gold differences are statistically the same as the rest of the leagues.
+
+In the figure below, we see the distribution of test statistics, and the P-value resulting from the test is approximately 0.22. At a significance level of 0.01, we can likely conclude that the mean absolute gold difference at 15min during WCS games is the same as that of any other competitive League game. 
+
 <iframe src="assets/hyp-test-plot.html" width=800 height=600 frameBorder=0></iframe>
 
+From our initial question, this conclusion indicates that WCS matches aren't significantly more competitive than other games, based on gold difference at 15min alone. It should be noted that we might come to a different conclusion under some other test statistic, though; this question involves many nuances and variables in each league of legends match, and gold differences may not be able to accurately summarize such data.
 
 <br>
 
